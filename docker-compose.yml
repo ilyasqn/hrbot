@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  hrbot:
+    build: .
+    container_name: hrbot
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    command: python main.py
