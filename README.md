@@ -8,4 +8,4 @@
    cd hrbot
 3. Build and run the Docker image:
    ```bash
-   python main.py
+   docker-compose up --build
