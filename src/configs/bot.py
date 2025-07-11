@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     )
     TOKEN: str
     CHANNEL_ID: str
+    MAX_COMPANY_DESCRIPTION_LENGTH: int
 
 
 bot_settings = Settings()

@@ -4,6 +4,8 @@ from src.states.vacancy import VacancyForm
 from src.services.sender import send_to_channel_and_backend
 from src.keyboards.vacancy import kb
 from src.keyboards import base
+from src.configs.bot import bot_settings
+
 
 router = Router()
 
@@ -38,6 +40,9 @@ async def get_company_description(message: types.Message, state: FSMContext):
     text = message.text.strip()
     if text == '-':
         await state.update_data(company_description=None)
+    elif len(text) >= bot_settings.MAX_COMPANY_DESCRIPTION_LENGTH:
+        await message.answer(f"❗️ Описание слишком длинное! Введите заново текст")
+        return
     else:
         await state.update_data(company_description=text)
     await message.answer("Локация:", reply_markup=kb.location_kb)
