@@ -9,6 +9,9 @@ class Settings(BaseSettings):
         extra='ignore'
     )
     URL: str
+    SERVER_PROD: bool
+    SERVER_DEV: bool
+
 
 
 backend_settings = Settings()
