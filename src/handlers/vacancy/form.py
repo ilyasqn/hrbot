@@ -144,5 +144,5 @@ async def handle_confirm_username(message: types.Message, state: FSMContext):
 async def send_data(message: types.Message, state: FSMContext):
     data = await state.get_data()
     await send_to_channel_and_backend(data)
-    await message.answer("✅ Данные отправлены в it-nomads и скоро опубликуются на канале!в Спасибо.")
+    await message.answer("✅ Данные отправлены в it-nomads и скоро опубликуются на канале! Спасибо.")
     await state.clear()

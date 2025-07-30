@@ -7,6 +7,8 @@ from aiogram import Bot, Dispatcher
 from src.handlers.handler import router as start_router
 from src.handlers.vacancy.handler import router as vacancy_router
 from src.handlers.vacancy.form import router as vacancy_form
+from src.handlers.event.handler import router as event_router
+from src.handlers.event.form import router as event_form
 from src.configs.bot import bot_settings
 
 logger = logging.getLogger(__name__)
@@ -22,6 +24,8 @@ async def main():
         dp.include_router(start_router)
         dp.include_router(vacancy_router)
         dp.include_router(vacancy_form)
+        dp.include_router(event_router)
+        dp.include_router(event_form)
         logger.info("✅ Routers registered.")
 
         logger.info("🚀 Starting polling...")
