@@ -34,29 +34,36 @@ HRbot — это Telegram-бот, созданный для публикации
 HRbot/
 ├── docker-compose.yml
 ├── Dockerfile
+├── logs/
+│   └── hrbot.log
 ├── main.py
 ├── README.md
 ├── requirements.txt
 └── src/
-├── configs/
-│ ├── backend.py
-│ └── bot.py
-├── handlers/
-│ ├── handler.py
-│ └── vacancy/
-│ ├── form.py
-│ ├── handler.py
-│ └── init.py
-├── keyboards/
-│ ├── base.py
-│ ├── main.py
-│ └── vacancy/
-│ ├── kb.py
-│ └── init.py
-├── services/
-│ └── sender.py
-└── states/
-└── vacancy.py
+    ├── configs/
+    │   ├── backend.py
+    │   └── bot.py
+    ├── handlers/
+    │   ├── handler.py
+    │   ├── event/
+    │   └── vacancy/
+    │       ├── form.py
+    │       ├── handler.py
+    │       └── init.py
+    ├── keyboards/
+    │   ├── base.py
+    │   ├── main.py
+    │   └── vacancy/
+    │       ├── kb.py
+    │       └── init.py
+    ├── services/
+    │   ├── formatter.py
+    │   └── sender.py
+    ├── states/
+    │   ├── event.py
+    │   └── vacancy.py
+    └── utils/
+        └── logger.py
 ```
 
 ## Как запустить проект?
