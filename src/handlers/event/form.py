@@ -1,7 +1,7 @@
 from aiogram import Router, types
 from aiogram.fsm.context import FSMContext
 from src.states.event import EventForm
-from src.services.sender import send_to_channel_and_backend
+from src.services.sender import Sender
 from datetime import datetime
 
 router = Router()
@@ -43,6 +43,6 @@ async def get_event_date(message: types.Message, state: FSMContext):
 
 async def send_event_data(message: types.Message, state: FSMContext):
     data = await state.get_data()
-    await send_to_channel_and_backend(data)
+    await Sender.send_event(data)
     await message.answer("✅ Событие успешно отправлено в it-nomads и скоро появится в канале!")
     await state.clear()

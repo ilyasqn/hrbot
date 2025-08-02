@@ -1,7 +1,7 @@
 from aiogram import Router, types
 from aiogram.fsm.context import FSMContext
 from src.states.vacancy import VacancyForm
-from src.services.sender import send_to_channel_and_backend
+from src.services.sender import Sender
 from src.keyboards.vacancy import kb
 from src.keyboards import base
 from src.configs.bot import bot_settings
@@ -138,11 +138,11 @@ async def handle_confirm_username(message: types.Message, state: FSMContext):
     else:
         await state.update_data(contacts=message.text)
 
-    await send_data(message=message, state=state)
+    await send_vacancy_data(message=message, state=state)
 
 
-async def send_data(message: types.Message, state: FSMContext):
+async def send_vacancy_data(message: types.Message, state: FSMContext):
     data = await state.get_data()
-    await send_to_channel_and_backend(data)
+    await Sender.send_vacancy(data)
     await message.answer("✅ Данные отправлены в it-nomads и скоро опубликуются на канале! Спасибо.")
     await state.clear()
